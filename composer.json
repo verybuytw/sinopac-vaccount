@@ -1,0 +1,39 @@
+{
+    "name": "vb-payment/sinopac-vaccount",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Hughes",
+            "email": "hughes@pht-studio.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^1.21",
+        "vb-payment/sinopac-core": "*@dev"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.5",
+        "symfony/process": "~3.0",
+        "symfony/var-dumper": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "VeryBuy\\Payment\\SinoPac\\VirtualAccount\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Payment\\SinoPac\\VirtualAccount\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+        {
+          "type": "path",
+          "url": "./sinopac-core"
+        }
+    ]
+}
