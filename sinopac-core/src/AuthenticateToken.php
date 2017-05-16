@@ -34,10 +34,19 @@ class AuthenticateToken
     public function cnonce(): int
     {
         if (!$this->cnonce) {
-            // $this->cnonce = random_int(123400, 9999999);
-            $this->cnonce = random_int(9999999, 9999999);
+            $this->cnonce = random_int(123400, 9999999);
         }
 
         return $this->cnonce;
+    }
+
+    /**
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return array_merge($this->token, [
+            'cnonce' => $this->cnonce
+        ]);
     }
 }

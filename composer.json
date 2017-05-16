@@ -25,6 +25,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Tests\\Payment\\SinoPac\\": "sinopac-core/tests/",
             "Tests\\Payment\\SinoPac\\VirtualAccount\\": "tests/"
         }
     },

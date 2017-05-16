@@ -5,15 +5,16 @@ namespace VeryBuy\Payment\SinoPac;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Response;
-use VeryBuy\Payment\SinoPac\Request\AuthenticateRequestTrait as AuthenticateRequest;
-use VeryBuy\Payment\SinoPac\Request\EncryptVerifyCodeTrait as EncryptVerifyCode;
-use VeryBuy\Payment\SinoPac\Request\HttpClientTrait as HttpClient;
-use VeryBuy\Payment\SinoPac\Request\TransformToXmlTrait as TransformToXml;
+use VeryBuy\Payment\SinoPac\BuilderTrait\Request\AuthenticateRequestTrait as AuthenticateRequest;
+use VeryBuy\Payment\SinoPac\BuilderTrait\Request\EncryptVerifyCodeTrait as EncryptVerifyCode;
+use VeryBuy\Payment\SinoPac\BuilderTrait\Request\HttpClientTrait as HttpClient;
+use VeryBuy\Payment\SinoPac\BuilderTrait\Request\TransformToXmlTrait as TransformToXml;
+use VeryBuy\Payment\SinoPac\BuilderTrait\Response\ResponseParseTrait as ResponseParse;
+use VeryBuy\Payment\SinoPac\Requests\RequestContract;
 
 class RequestBuilder
 {
-    use AuthenticateRequest, EncryptVerifyCode, HttpClient, TransformToXml;
+    use AuthenticateRequest, EncryptVerifyCode, HttpClient, TransformToXml, ResponseParse;
 
     /**
      *@var string
@@ -72,11 +73,10 @@ class RequestBuilder
     }
 
     /**
-     * [request description]
      * @param  RequestContract $contract
-     * @return self|Response
+     * @return string
      */
-    public function request(RequestContract $contract)
+    public function make(RequestContract $contract)
     {
         $authenticate = $this
             ->setRequest($contract)
@@ -88,21 +88,20 @@ class RequestBuilder
                 $contract->getUri(),
                 [
                     'Authorization' => $authenticate,
-                    'Content-Type' => 'text/xml'
+                    'Content-Type' => 'text/xml;'
                 ],
                 $this->getRequestContent()
             );
 
             $response = $this
-                ->genClient(['verify' => false])
+                ->genClient()
                 ->send($request);
         } catch (RequestException $e) {
             $response = $e->getResponse();
-        }
-        dump($request);
-        dump($this->getRequestContent());
-        dump($response);
 
-        return $this;
+            throw $e;
+        }
+
+        return $this->parseHttpResponse($response);
     }
 }
