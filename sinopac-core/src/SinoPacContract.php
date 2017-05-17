@@ -17,4 +17,6 @@ interface SinoPacContract
     const PAYFLAG_CREDITCARD_AUTHORIZE = 'Y';
     const PAYFLAG_CREDITCARD_UNAUTHORIZE = 'N';
     const RESPONSE_AUTOPUSH_REFUND = 'Y';
+    const CLOSECASE_STATUS_SUCCESS = 'S';
+    const CLOSECASE_STATUS_FAILED = 'F';
 }

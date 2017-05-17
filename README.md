@@ -17,7 +17,6 @@ $    composer require vb-payment/sinopac-vaccount
 
 ### Use RequestBuilder make a request to get sinopac virtual account
 
-
 ```php
 <?php
 
@@ -34,7 +33,7 @@ $    composer require vb-payment/sinopac-vaccount
         ]
     );
 
-    $companyId = 'AB0178'; // 特店代號
+    $companyId = 'AB0178'; // 商家代碼
 
     $vaccount = (new RequestBuilder($companyId, [
         'KeyData1' => '7ef61f50-ed9f-4321-b6a2-f60bdafc1e2e',
@@ -43,8 +42,9 @@ $    composer require vb-payment/sinopac-vaccount
     ]))->make($request)->getVirtualAccount();
 ```
 
-### Use ResponseVerifier verify response
+## Auto push
 
+### Use ResponseVerifier verify response
 
 ```php
 <?php
@@ -57,4 +57,39 @@ $    composer require vb-payment/sinopac-vaccount
     $verifier->getAmount();         // 付款金額
     $verifier->getOrderNumber();    // 訂單編號
     $verifier->getId();             // 永豐自訂 id
+```
+
+### Response for sinopac auto push
+
+```php
+<?php
+
+    use VeryBuy\Payment\SinoPac\ResponseVerifier;
+    use VeryBuy\Payment\SinoPac\Requests\CloseCaseResponseRequest;
+
+    $verifier = new ResponseVerifier({response xml string});
+
+    /**
+     * auto push response success xml
+     */
+    $success = (new CloseCaseResponseRequest([
+        'OrderID' => $verifier->getOrderNumber(),
+        'ShopNO' => $verifier->getCompanyId(),
+        'TSNO' => $verifier->getId(),
+        'Amount' => $verifier->getAmount(),
+    ]))->success();
+
+    $verifier->toXml($success);
+
+    /**
+     * auto push response success xml
+     */
+    $failed = (new CloseCaseResponseRequest([
+        'OrderID' => $verifier->getOrderNumber(),
+        'ShopNO' => $verifier->getCompanyId(),
+        'TSNO' => $verifier->getId(),
+        'Amount' => $verifier->getAmount(),
+    ]))->failed();
+
+    $verifier->toXml($failed);
 ```

@@ -8,9 +8,9 @@ use GuzzleHttp\Psr7\Request;
 use VeryBuy\Payment\SinoPac\BuilderTrait\Request\AuthenticateRequestTrait as AuthenticateRequest;
 use VeryBuy\Payment\SinoPac\BuilderTrait\Request\EncryptVerifyCodeTrait as EncryptVerifyCode;
 use VeryBuy\Payment\SinoPac\BuilderTrait\Request\HttpClientTrait as HttpClient;
-use VeryBuy\Payment\SinoPac\BuilderTrait\Request\TransformToXmlTrait as TransformToXml;
 use VeryBuy\Payment\SinoPac\BuilderTrait\Response\ResponseParseTrait as ResponseParse;
 use VeryBuy\Payment\SinoPac\Requests\RequestContract;
+use VeryBuy\Payment\SinoPac\TransformToXmlTrait as TransformToXml;
 
 class RequestBuilder
 {

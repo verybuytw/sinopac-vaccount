@@ -56,25 +56,9 @@ class VirtualAccountRequest extends RequestContract
     public function validate(): self
     {
         return $this
-            ->validFieldExists()
+            ->validFieldExists(['Amount', 'ExpireDate'])
             ->validAmount()
             ->validExpireDate();
-    }
-
-    /**
-     * @return self|InvalidArgumentException
-     */
-    protected function validFieldExists(): self
-    {
-        foreach (['Amount', 'ExpireDate'] as $field) {
-            if (!array_key_exists($field, $this->options)) {
-                throw new InvalidArgumentException(strtr('{field} is not exists.', [
-                    '{field}' => $field
-                ]));
-            }
-        }
-
-        return $this;
     }
 
     /**

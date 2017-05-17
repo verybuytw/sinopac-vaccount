@@ -27,7 +27,7 @@ class VirtualAccountRequestTest extends AbstractTestCase
          * 大小寫需一致，欄位順序也要一致
          */
         $request = new VirtualAccountRequest(
-            SinoPacContract::REQUEST_VACCOUNT_TEST, [
+            [
                 'OrderNO' => 'T'.date('YmdHis'),
                 'Amount' => 1230000, // 只能 <= 30,000.00
                 'ExpireDate' => date('Ymd', strtotime('+30 days')), // 設至日期需 <= d+30
@@ -44,7 +44,8 @@ class VirtualAccountRequestTest extends AbstractTestCase
                 // 'Param1' => null,
                 // 'Param2' => null,
                 // 'Param3' => null,
-            ]
+            ],
+            SinoPacContract::REQUEST_VACCOUNT_TEST
         );
 
         $account = (new RequestBuilder(

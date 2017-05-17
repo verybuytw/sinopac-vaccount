@@ -15,6 +15,14 @@ trait NormalTrait
 	/**
 	 * @return string
 	 */
+	public function getCompanyId(): string
+	{
+		return $this->parsed->ShopNO;
+	}
+
+	/**
+	 * @return string
+	 */
 	public function getId(): string
 	{
 		return $this->parsed->TSNO;
