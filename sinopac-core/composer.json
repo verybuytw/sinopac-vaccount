@@ -28,7 +28,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Payment\\SinoPac\\": "tests/"
         }
     },
     "minimum-stability": "stable",

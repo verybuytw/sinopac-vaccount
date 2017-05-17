@@ -52,8 +52,6 @@ class VirtualAccountRequestTest extends AbstractTestCase
             $this->companyStub,
             $this->keyStub
         ))->make($request)->getVirtualAccount();
-
-        dump($account);
     }
 
     /**
