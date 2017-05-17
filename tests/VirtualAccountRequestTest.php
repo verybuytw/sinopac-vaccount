@@ -2,7 +2,7 @@
 
 namespace Tests\Payment\SinoPac\VirtualAccount;
 
-use Tests\Payment\SinoPac\ConfigTrait;
+use Tests\Payment\SinoPac\VirtualAccount\ConfigTrait;
 use VeryBuy\Payment\SinoPac\Exceptions\FailedException;
 use VeryBuy\Payment\SinoPac\RequestBuilder;
 use VeryBuy\Payment\SinoPac\Response\Response;
