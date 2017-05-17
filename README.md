@@ -1,18 +1,8 @@
 Installation
 -------------
 
-`composer.json` append `repositories`
-```json
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@gitlab.cola-hughes.com:vb/sinopac-vaccount.git"
-        }
-    ],
-```
-
 ```shell
-$    composer require vb-payment/sinopac-vaccount
+$    composer require hughes/sinopac-vaccount
 ```
 
 ### Use RequestBuilder make a request to get sinopac virtual account
