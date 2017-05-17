@@ -6,7 +6,7 @@ Installation
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@gitlab.cola-hughes.com:vb/esunbank-vaccount.git"
+            "url": "git@gitlab.cola-hughes.com:vb/sinopac-vaccount.git"
         }
     ],
 ```
