@@ -16,7 +16,9 @@ trait ResponseParseTrait
     {
         $class = $this->request->getResponseClass();
 
-        $response = new $class($response->getBody()->getContents());
+        $response = new $class(
+            $response->getBody()->getContents()
+        );
 
         if ($response->isSuccess()) {
             return $response;

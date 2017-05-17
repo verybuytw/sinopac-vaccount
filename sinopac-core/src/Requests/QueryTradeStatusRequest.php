@@ -2,9 +2,6 @@
 
 namespace VeryBuy\Payment\SinoPac\Requests;
 
-use Carbon\Carbon;
-use VeryBuy\Payment\SinoPac\CurrencyContract;
-use VeryBuy\Payment\SinoPac\Exceptions\InvalidArgumentException;
 use VeryBuy\Payment\SinoPac\Requests\RequestContract;
 use VeryBuy\Payment\SinoPac\Responses\QueryTradeStatusResponse;
 
@@ -62,6 +59,9 @@ class QueryTradeStatusRequest extends RequestContract
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getResponseClass(): string
     {
         return QueryTradeStatusResponse::class;
