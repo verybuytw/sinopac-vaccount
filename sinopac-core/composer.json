@@ -1,5 +1,5 @@
 {
-    "name": "vb-payment/sinopac-core",
+    "name": "hughes/sinopac-core",
     "type": "library",
     "authors": [
         {
@@ -30,6 +30,11 @@
         "psr-4": {
         }
     },
-    "minimum-stability": "stable",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.1-dev"
+        }
+    },
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

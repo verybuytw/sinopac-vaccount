@@ -1,5 +1,5 @@
 {
-    "name": "vb-payment/sinopac-vaccount",
+    "name": "hughes/sinopac-vaccount",
     "type": "library",
     "authors": [
         {
@@ -9,7 +9,7 @@
     ],
     "require": {
         "nesbot/carbon": "^1.21",
-        "vb-payment/sinopac-core": "*@dev"
+        "hughes/sinopac-core": "*@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -29,7 +29,7 @@
             "Tests\\Payment\\SinoPac\\VirtualAccount\\": "tests/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
         {
