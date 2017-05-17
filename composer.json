@@ -9,11 +9,9 @@
     ],
     "require": {
         "nesbot/carbon": "^1.21",
-        "hughes/sinopac-core": "*@dev"
+        "hughes/sinopac-core": "^1.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.5",
         "symfony/process": "~3.0",
         "symfony/var-dumper": "~3.0"
@@ -25,16 +23,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Payment\\SinoPac\\": "sinopac-core/tests/",
             "Tests\\Payment\\SinoPac\\VirtualAccount\\": "tests/"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-          "type": "path",
-          "url": "./sinopac-core"
-        }
-    ]
+    }
 }
