@@ -2,7 +2,7 @@ Installation
 -------------
 
 ```shell
-$    composer require hughes/sinopac-vaccount
+$    composer require verybuytw/sinopac-vaccount
 ```
 
 ### Use RequestBuilder make a request to get sinopac virtual account
