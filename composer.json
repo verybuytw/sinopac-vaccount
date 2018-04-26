@@ -1,15 +1,15 @@
 {
-    "name": "hughes/sinopac-vaccount",
+    "name": "verybuytw/sinopac-vaccount",
     "type": "library",
     "authors": [
         {
-            "name": "Hughes",
-            "email": "hughes@pht-studio.com"
+            "name": "Verybuy",
+            "email": "rd@verybuy.com.tw"
         }
     ],
     "require": {
         "nesbot/carbon": "^1.21",
-        "hughes/sinopac-core": "^1.0"
+        "verybuytw/sinopac-core": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.5",
